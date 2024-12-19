@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>動画共有</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      iframe {
+        width: calc(100% - 8px);
+        height: calc(100% - 8px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <iframe id="iframe_video"
+        allow="autoplay"
+      ></iframe>
+    </div>
+
+    <script>
+      window.onload = function () {
+        const searchParams = new URLSearchParams(window.location.search)
+        const fileId= searchParams.get("id")
+        iframe_video.src = `https://drive.google.com/file/d/${fileId}/preview`;
+      };
+    </script>
+  </body>
+</html>
